@@ -1,5 +1,5 @@
 {% set name = "mnemonic" %}
-{% set version = "0.20" %}
+{% set version = "0.21" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/mnemonic-{{ version }}.tar.gz
-  sha256: 7c6fb5639d779388027a77944680aee4870f0fcd09b1e42a5525ee2ce4c625f6
+  sha256: 1fe496356820984f45559b1540c80ff10de448368929b9c60a2b55744cc88acf
 
 build:
   noarch: python
