@@ -17,6 +17,7 @@ build:
 requirements:
   host:
     - pip
+    - poetry-core
     - python >=3.6
   run:
     - pbkdf2
