@@ -1,0 +1,44 @@
+schema_version: 1
+
+context:
+  name: mnemonic
+  version: "0.21"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/mnemonic-${{ version }}.tar.gz
+  sha256: 1fe496356820984f45559b1540c80ff10de448368929b9c60a2b55744cc88acf
+
+build:
+  number: 2
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - pip
+    - poetry-core
+    - python ${{ python_min }}.*
+  run:
+    - pbkdf2
+    - python >=${{ python_min }}
+
+tests:
+  - python:
+      imports:
+        - mnemonic
+      pip_check: true
+      python_version: ${{ python_min }}
+
+about:
+  summary: Implementation of Bitcoin BIP-0039
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/trezor/python-mnemonic
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
